@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import EventsPage, { loader } from "./pages/EventsPage";
 import EventDetailsPage, {
   loaderForEventDetails,
+  action as eventDetailsAction,
 } from "./pages/EventDetailPage";
 import NewEventPage, { action } from "./pages/NewEventPage";
 import EditEventPage from "./pages/EditEventPage";
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailsPage />,
+                action: eventDetailsAction,
               },
               {
                 path: "edit",

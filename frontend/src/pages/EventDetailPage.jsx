@@ -1,4 +1,4 @@
-import { useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { redirect, useRouteLoaderData } from "react-router-dom";
 import EventItem from "../components/EventItem";
 
 export default function EventDetailsPage() {
@@ -18,4 +18,19 @@ export async function loaderForEventDetails({ request, params }) {
     const data = await response.json();
     return data;
   }
+}
+
+export async function action({ request, params }) {
+  const eventId = params.eventId;
+  const url = `http://localhost:8080/events/${eventId}`;
+  const response = await fetch(url, {
+    method: request.method,
+  });
+  if (!response.ok) {
+    throw new Response(
+      JSON.stringify({ message: "Could not fetch the requested event" })
+    );
+  }
+
+  return redirect("/events");
 }
