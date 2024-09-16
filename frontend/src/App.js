@@ -4,7 +4,7 @@ import EventsPage, { loader } from "./pages/EventsPage";
 import EventDetailsPage, {
   loaderForEventDetails,
 } from "./pages/EventDetailPage";
-import NewEventPage from "./pages/NewEventPage";
+import NewEventPage, { action } from "./pages/NewEventPage";
 import EditEventPage from "./pages/EditEventPage";
 import RootLayout from "./pages/RootLayout";
 import EventsRoot from "./pages/EventsRoot";
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
               },
             ],
           },
-          { path: "new", element: <NewEventPage /> },
+          { path: "new", element: <NewEventPage />, action: action },
         ],
       },
     ],
